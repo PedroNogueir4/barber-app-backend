@@ -13,7 +13,7 @@ class UserController {
       })
 
       try {
-        userSchema.isValidSync(req.body, { abortEarly: false })
+        userSchema.validateSync(req.body, { abortEarly: false })
       } catch (error) {
         return res.status(400).json({ error: error.errors })
       }
