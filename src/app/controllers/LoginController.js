@@ -22,9 +22,11 @@ class LoginController {
     }
 
     if (user && user.admin) {
-      const passwordAdm = req.body.password_hash
+      const { password } = req.body
 
-      if (user.password_hash === passwordAdm) {
+      const passChecked = await user.checkPassword(password)
+
+      if (passChecked) {
         return res.status(200).json({
           id: user.id,
           email: user.email,
