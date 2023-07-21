@@ -1,4 +1,6 @@
 import * as Yup from "yup"
+import jwt from "jsonwebtoken"
+import authConfig from "../../config/auth"
 import User from "../models/User"
 
 class LoginController {
@@ -31,6 +33,9 @@ class LoginController {
           id: user.id,
           email: user.email,
           admin: user.admin,
+          token: jwt.sign({ id: user.id }, authConfig.secret, {
+            expiresIn: authConfig.expiresIn,
+          }),
         })
       } else {
         return res.status(404).json({ error: "Senha incorreta!" })
@@ -42,6 +47,9 @@ class LoginController {
       email: user.email,
       name: user.name,
       admin: user.admin,
+      token: jwt.sign({ id: user.id }, authConfig.secret, {
+        expiresIn: authConfig.expiresIn,
+      }),
     })
   }
 }

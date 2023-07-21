@@ -2,8 +2,9 @@ import Sequelize from "sequelize"
 import configDataBase from "../config/database"
 
 import User from "../app/models/User"
+import Haircut from "../app/models/Haircuts"
 
-const models = [User]
+const models = [User, Haircut]
 
 class Database {
   constructor() {
