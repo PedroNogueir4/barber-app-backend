@@ -33,7 +33,7 @@ class LoginController {
           id: user.id,
           email: user.email,
           admin: user.admin,
-          token: jwt.sign({ id: user.id }, authConfig.secret, {
+          token: jwt.sign({ id: user.id, name: user.name }, authConfig.secret, {
             expiresIn: authConfig.expiresIn,
           }),
         })
@@ -47,7 +47,7 @@ class LoginController {
       email: user.email,
       name: user.name,
       admin: user.admin,
-      token: jwt.sign({ id: user.id }, authConfig.secret, {
+      token: jwt.sign({ id: user.id, name: user.name }, authConfig.secret, {
         expiresIn: authConfig.expiresIn,
       }),
     })
