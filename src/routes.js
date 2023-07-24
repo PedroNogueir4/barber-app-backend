@@ -18,6 +18,8 @@ routes.post("/login", LoginController.store)
 routes.use(authMiddleware)
 
 routes.post("/haircuts", HaircutsController.store)
+routes.put("/haircuts/:id", HaircutsController.update)
+routes.delete("/haircuts/:id", HaircutsController.delete)
 routes.get("/haircuts", HaircutsController.index)
 
 export default routes
