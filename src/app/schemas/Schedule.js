@@ -11,6 +11,10 @@ const Haircut = new Schema(
         type: String,
         required: true,
       },
+      number: {
+        type: String,
+        required: true,
+      },
     },
     haircut: [
       {

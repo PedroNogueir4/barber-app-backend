@@ -33,9 +33,13 @@ class LoginController {
           id: user.id,
           email: user.email,
           admin: user.admin,
-          token: jwt.sign({ id: user.id, name: user.name }, authConfig.secret, {
-            expiresIn: authConfig.expiresIn,
-          }),
+          token: jwt.sign(
+            { id: user.id, name: user.name, phone_number: user.phone_number },
+            authConfig.secret,
+            {
+              expiresIn: authConfig.expiresIn,
+            },
+          ),
         })
       } else {
         return res.status(404).json({ error: "Senha incorreta!" })
@@ -47,9 +51,13 @@ class LoginController {
       email: user.email,
       name: user.name,
       admin: user.admin,
-      token: jwt.sign({ id: user.id, name: user.name }, authConfig.secret, {
-        expiresIn: authConfig.expiresIn,
-      }),
+      token: jwt.sign(
+        { id: user.id, name: user.name, phone_number: user.phone_number },
+        authConfig.secret,
+        {
+          expiresIn: authConfig.expiresIn,
+        },
+      ),
     })
   }
 }

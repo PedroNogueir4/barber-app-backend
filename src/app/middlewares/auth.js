@@ -17,6 +17,7 @@ export default (req, res, next) => {
       }
       req.userName = decoded.name
       req.userId = decoded.id
+      req.phoneNumber = decoded.phone_number
 
       return next()
     })
