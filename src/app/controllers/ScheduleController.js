@@ -34,8 +34,6 @@ class ScheduleController {
           id: prd.id,
           name: prd.name,
           price: prd.price,
-          day: day[0],
-          time: time[0],
         }
         return attHaircut
       })
@@ -48,6 +46,8 @@ class ScheduleController {
         },
         haircut: newSchedule,
         status: "Agendamento Realizado",
+        day: day[0],
+        time: time[0],
       }
 
       const finallySchedule = await Schedule.create(scheduleSchema)

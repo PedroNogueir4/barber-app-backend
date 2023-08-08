@@ -30,17 +30,17 @@ const Haircut = new Schema(
           type: Number,
           required: true,
         },
-        day: {
-          type: String,
-          required: true,
-        },
-        time: {
-          type: String,
-          required: true,
-        },
       },
     ],
     status: {
+      type: String,
+      required: true,
+    },
+    day: {
+      type: String,
+      required: true,
+    },
+    time: {
       type: String,
       required: true,
     },
