@@ -11,6 +11,8 @@ class ScheduleController {
           .of(
             Yup.object().shape({
               id: Yup.number().required(),
+              day: Yup.string().required(),
+              time: Yup.string().required(),
             }),
           ),
       })
@@ -22,6 +24,8 @@ class ScheduleController {
       }
 
       const id = req.body.haircut.map((order) => order.id)
+      const day = req.body.haircut.map((order) => order.day)
+      const time = req.body.haircut.map((order) => order.time)
 
       const haircutRequest = await Haircut.findAll({ where: { id } })
 
@@ -30,6 +34,8 @@ class ScheduleController {
           id: prd.id,
           name: prd.name,
           price: prd.price,
+          day: day[0],
+          time: time[0],
         }
         return attHaircut
       })
